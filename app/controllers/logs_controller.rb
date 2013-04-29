@@ -1,4 +1,4 @@
-class LogsControllers < ApplicationController
+class LogsController < ApplicationController
 
 	before_filter :authenticate_user
 
