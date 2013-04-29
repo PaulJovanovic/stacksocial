@@ -6,7 +6,12 @@ class HomesController < ApplicationController
 		search = params[:search] || session[:last_search] || "stacksocial"
 		session[:last_search] = search
 
-		@tweets = Rails.cache.fetch("search/#{search}") { @client.search("#{search}", :count => 20, :result_type => "recent").results }
+		@tweets = Rails.cache.fetch("search/#{search}") { 
+			@client.search("#{search}", :count => 20, :result_type => "recent").results
+			ql = QueryLog.new(:query => "@client.search('#{search}', :count => 20, :result_type => 'recent').results")
+			puts "hello"
+			ql.save
+		}
 
 		respond_to do |format|
       format.html

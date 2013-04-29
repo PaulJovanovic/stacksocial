@@ -4,6 +4,7 @@ Stack::Application.routes.draw do
   match '/users/:user' => 'users#show'
   match '/signin' => 'sessions#signin'
 
+  resources :logs
   resources :sessions
   resources :homes
   root :to => "homes#index"
