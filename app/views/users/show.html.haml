@@ -1,0 +1,28 @@
+.container.mtl
+	.row
+		.span4
+			.row-fluid
+				.span2
+					.row-fluid
+						%img.span12{src:"#{@twitter.profile_image_url}"}
+				.span10
+					%h3{style:"margin:0px;line-height:24.5px"}
+						= @twitter.name
+					%h4{style:"margin:0px"}
+						= "@#{@twitter.screen_name}"
+			.row-fluid.well.phn.mtl
+				%div.phm
+					.span4
+						= @twitter.statuses_count
+						%br
+						tweets
+					.span4
+						= @twitter.friends_count
+						%br
+						following
+					.span4
+						= @twitter.followers_count
+						%br
+						followers
+		.span8
+			= render :partial => "shared/tweets"

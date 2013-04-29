@@ -1,0 +1,15 @@
+.container.mtl
+	.row
+		.span4
+			%form
+				.row-fluid
+					= text_field_tag 'search', session[:last_search], :class => "span12"
+				.row-fluid
+					%button.btn.span12.phn{type:"submit"}
+						%i.icon-search
+						search
+			.row-fluid
+				= link_to "http://superjova.com" do
+					%img{src:"http://www.superjova.com/assets/classic.png"}
+		#tweets.span8
+			= render :partial => "shared/tweets"

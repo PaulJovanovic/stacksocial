@@ -1,0 +1,22 @@
+- if @current_user
+	.navbar.navbar-static-top
+		.navbar-inner
+			.container
+				.pull-right
+					-unless @current_user
+						= link_to "/auth/twitter" do 
+							.btn.btn-inverse
+								%i.icon-twitter
+								sign in
+					-else
+						= link_to auth_logout_path do
+							.btn.btn-inverse
+								%i.icon-signout
+								logout
+				.brand
+					= link_to root_path do
+						%i.icon-home
+						stacksocial
+				.brand
+					Hello, 
+					= @current_user.name

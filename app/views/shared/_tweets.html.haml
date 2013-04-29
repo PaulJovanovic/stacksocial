@@ -1,0 +1,18 @@
+-if @tweets.length > 0
+	-@tweets.each do |tweet|
+		= link_to "/users/#{tweet.user.screen_name}" do
+			.row-fluid.well.phn
+				.phm
+					.span2
+						%img{src:"#{tweet.user.profile_image_url}"}
+					.span10
+						.pull-right.faded-text
+							= tweet.created_at.strftime("%b %d")
+						%b
+							= tweet.user.name 
+						%span.faded-text
+							= " @#{tweet.user.screen_name}"
+						%br
+						= tweet.text
+-else
+	%h1 Oops! No matches.
