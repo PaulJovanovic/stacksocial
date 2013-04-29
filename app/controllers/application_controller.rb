@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 			  :oauth_token => @current_user.access_token,
 			  :oauth_token_secret => @current_user.access_secret
 			)
+			Tweet.client = @client
 		else
 			redirect_to "/signin"
 		end
